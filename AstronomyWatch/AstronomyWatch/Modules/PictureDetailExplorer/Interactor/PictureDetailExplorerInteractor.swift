@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Network
 
 protocol PictureDetailExplorerInteractorProtocol: AnyObject {
     func startLoading()
@@ -17,14 +18,21 @@ class PictureDetailExplorerInteractor: PictureDetailExplorerInteractorProtocol {
     var urlSession = URLSession(configuration: .default)
     
     init() {
-        
+//        NetworkMonitor.shared.callback = { path in
+//
+//        }
     }
     
     func startLoading() {
         if let model = UserDefaults.standard.pictureOfDayModel, model.date == Date.getTodaysDateInAPIFriendlyFormat() {
             presenterDelegate?.loadPictureOfTheDay(model: model)
         } else {
-            fetchPictureOfTheDay()
+            if NetworkMonitor.shared.isReachable {
+                fetchPictureOfTheDay()
+            } else {
+                fetchPictureModelDidFail()
+            }
+            // Handle scenario where phone is not connected to internet and app is opened for the first time.
         }
     }
 }
@@ -34,15 +42,24 @@ extension PictureDetailExplorerInteractor {
     private func fetchPictureOfTheDay() {
         guard let request = createPictureOfTheDayRequest() else { return }
         let task = urlSession.dataTask(with: request) { data, response, error in
-            if let data = data {
-                if let model = try? JSONDecoder().decode(PictureOfDayModel.self, from: data) {
-                    DispatchQueue.main.async {
+            DispatchQueue.main.async {
+                if error != nil || data == nil || (response as? HTTPURLResponse)?.statusCode != 200 {
+                    self.fetchPictureModelDidFail()
+                } else if let data = data {
+                    if let model = try? JSONDecoder().decode(PictureOfDayModel.self, from: data) {
                         self.didFetchPictureModel(model: model)
                     }
                 }
             }
         }
         task.resume()
+    }
+    
+    private func fetchPictureModelDidFail() {
+        if let model = UserDefaults.standard.pictureOfDayModel {
+            self.presenterDelegate?.loadPictureOfTheDay(model: model)
+            self.presenterDelegate?.handleLoadPictureOfTheDayDidFail()
+        }
     }
     
     private func didFetchPictureModel(model: PictureOfDayModel) {

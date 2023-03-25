@@ -28,6 +28,7 @@
 		D423D07429CF7E8000708482 /* URL+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D423D07329CF7E7F00708482 /* URL+Extension.swift */; };
 		D423D07629CF83C100708482 /* UserDefaults+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D423D07529CF83C100708482 /* UserDefaults+Extension.swift */; };
 		D423D07829CF873600708482 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D423D07729CF873500708482 /* Date+Extension.swift */; };
+		D423D07A29CF914300708482 /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D423D07929CF914300708482 /* NetworkMonitor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +75,7 @@
 		D423D07329CF7E7F00708482 /* URL+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Extension.swift"; sourceTree = "<group>"; };
 		D423D07529CF83C100708482 /* UserDefaults+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Extension.swift"; sourceTree = "<group>"; };
 		D423D07729CF873500708482 /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
+		D423D07929CF914300708482 /* NetworkMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -164,6 +166,7 @@
 				D423D07329CF7E7F00708482 /* URL+Extension.swift */,
 				D423D07529CF83C100708482 /* UserDefaults+Extension.swift */,
 				D423D07729CF873500708482 /* Date+Extension.swift */,
+				D423D07929CF914300708482 /* NetworkMonitor.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -369,6 +372,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D423D06029CF551300708482 /* AppCoordinator.swift in Sources */,
+				D423D07A29CF914300708482 /* NetworkMonitor.swift in Sources */,
 				D423D06F29CF65AC00708482 /* PictureDetailExplorerPresenter.swift in Sources */,
 				D423D05C29CF51F300708482 /* ConfigKeys.swift in Sources */,
 				D423D02C29CF515100708482 /* ViewController.swift in Sources */,

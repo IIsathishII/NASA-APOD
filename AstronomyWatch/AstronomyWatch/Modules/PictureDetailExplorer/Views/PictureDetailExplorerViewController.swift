@@ -10,6 +10,7 @@ import UIKit
 
 protocol PictureDetailExplorerViewProtocol: AnyObject {
     func constructViewWith(Model model: PictureOfDayModel)
+    func showErrorPopupWith(Message message: String)
 }
 
 class PictureDetailExplorerViewController: UIViewController, PictureDetailExplorerViewProtocol {
@@ -107,5 +108,11 @@ class PictureDetailExplorerViewController: UIViewController, PictureDetailExplor
         }
         
         NSLayoutConstraint.activate(constraints)
+    }
+    
+    func showErrorPopupWith(Message message: String) {
+        let alertController = UIAlertController(title: nil, message: message, preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        self.navigationController?.present(alertController, animated: true, completion: nil)
     }
 }
