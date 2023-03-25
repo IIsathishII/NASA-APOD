@@ -1,0 +1,609 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D423D02829CF515100708482 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D423D02729CF515100708482 /* AppDelegate.swift */; };
+		D423D02A29CF515100708482 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D423D02929CF515100708482 /* SceneDelegate.swift */; };
+		D423D02C29CF515100708482 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D423D02B29CF515100708482 /* ViewController.swift */; };
+		D423D02F29CF515100708482 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D423D02D29CF515100708482 /* Main.storyboard */; };
+		D423D03129CF515300708482 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D423D03029CF515300708482 /* Assets.xcassets */; };
+		D423D03429CF515300708482 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D423D03229CF515300708482 /* LaunchScreen.storyboard */; };
+		D423D03F29CF515300708482 /* AstronomyWatchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D423D03E29CF515300708482 /* AstronomyWatchTests.swift */; };
+		D423D04929CF515300708482 /* AstronomyWatchUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D423D04829CF515300708482 /* AstronomyWatchUITests.swift */; };
+		D423D04B29CF515300708482 /* AstronomyWatchUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D423D04A29CF515300708482 /* AstronomyWatchUITestsLaunchTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D423D03B29CF515300708482 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D423D01C29CF515100708482 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D423D02329CF515100708482;
+			remoteInfo = AstronomyWatch;
+		};
+		D423D04529CF515300708482 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D423D01C29CF515100708482 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D423D02329CF515100708482;
+			remoteInfo = AstronomyWatch;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		D423D02429CF515100708482 /* AstronomyWatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AstronomyWatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D423D02729CF515100708482 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		D423D02929CF515100708482 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		D423D02B29CF515100708482 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		D423D02E29CF515100708482 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		D423D03029CF515300708482 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D423D03329CF515300708482 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		D423D03529CF515300708482 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D423D03A29CF515300708482 /* AstronomyWatchTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AstronomyWatchTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D423D03E29CF515300708482 /* AstronomyWatchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AstronomyWatchTests.swift; sourceTree = "<group>"; };
+		D423D04429CF515300708482 /* AstronomyWatchUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AstronomyWatchUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D423D04829CF515300708482 /* AstronomyWatchUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AstronomyWatchUITests.swift; sourceTree = "<group>"; };
+		D423D04A29CF515300708482 /* AstronomyWatchUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AstronomyWatchUITestsLaunchTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D423D02129CF515100708482 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D423D03729CF515300708482 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D423D04129CF515300708482 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D423D01B29CF515100708482 = {
+			isa = PBXGroup;
+			children = (
+				D423D02629CF515100708482 /* AstronomyWatch */,
+				D423D03D29CF515300708482 /* AstronomyWatchTests */,
+				D423D04729CF515300708482 /* AstronomyWatchUITests */,
+				D423D02529CF515100708482 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D423D02529CF515100708482 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D423D02429CF515100708482 /* AstronomyWatch.app */,
+				D423D03A29CF515300708482 /* AstronomyWatchTests.xctest */,
+				D423D04429CF515300708482 /* AstronomyWatchUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D423D02629CF515100708482 /* AstronomyWatch */ = {
+			isa = PBXGroup;
+			children = (
+				D423D02729CF515100708482 /* AppDelegate.swift */,
+				D423D02929CF515100708482 /* SceneDelegate.swift */,
+				D423D02B29CF515100708482 /* ViewController.swift */,
+				D423D02D29CF515100708482 /* Main.storyboard */,
+				D423D03029CF515300708482 /* Assets.xcassets */,
+				D423D03229CF515300708482 /* LaunchScreen.storyboard */,
+				D423D03529CF515300708482 /* Info.plist */,
+			);
+			path = AstronomyWatch;
+			sourceTree = "<group>";
+		};
+		D423D03D29CF515300708482 /* AstronomyWatchTests */ = {
+			isa = PBXGroup;
+			children = (
+				D423D03E29CF515300708482 /* AstronomyWatchTests.swift */,
+			);
+			path = AstronomyWatchTests;
+			sourceTree = "<group>";
+		};
+		D423D04729CF515300708482 /* AstronomyWatchUITests */ = {
+			isa = PBXGroup;
+			children = (
+				D423D04829CF515300708482 /* AstronomyWatchUITests.swift */,
+				D423D04A29CF515300708482 /* AstronomyWatchUITestsLaunchTests.swift */,
+			);
+			path = AstronomyWatchUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D423D02329CF515100708482 /* AstronomyWatch */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D423D04E29CF515300708482 /* Build configuration list for PBXNativeTarget "AstronomyWatch" */;
+			buildPhases = (
+				D423D02029CF515100708482 /* Sources */,
+				D423D02129CF515100708482 /* Frameworks */,
+				D423D02229CF515100708482 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AstronomyWatch;
+			productName = AstronomyWatch;
+			productReference = D423D02429CF515100708482 /* AstronomyWatch.app */;
+			productType = "com.apple.product-type.application";
+		};
+		D423D03929CF515300708482 /* AstronomyWatchTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D423D05129CF515300708482 /* Build configuration list for PBXNativeTarget "AstronomyWatchTests" */;
+			buildPhases = (
+				D423D03629CF515300708482 /* Sources */,
+				D423D03729CF515300708482 /* Frameworks */,
+				D423D03829CF515300708482 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D423D03C29CF515300708482 /* PBXTargetDependency */,
+			);
+			name = AstronomyWatchTests;
+			productName = AstronomyWatchTests;
+			productReference = D423D03A29CF515300708482 /* AstronomyWatchTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		D423D04329CF515300708482 /* AstronomyWatchUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D423D05429CF515300708482 /* Build configuration list for PBXNativeTarget "AstronomyWatchUITests" */;
+			buildPhases = (
+				D423D04029CF515300708482 /* Sources */,
+				D423D04129CF515300708482 /* Frameworks */,
+				D423D04229CF515300708482 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D423D04629CF515300708482 /* PBXTargetDependency */,
+			);
+			name = AstronomyWatchUITests;
+			productName = AstronomyWatchUITests;
+			productReference = D423D04429CF515300708482 /* AstronomyWatchUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D423D01C29CF515100708482 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1320;
+				LastUpgradeCheck = 1320;
+				TargetAttributes = {
+					D423D02329CF515100708482 = {
+						CreatedOnToolsVersion = 13.2.1;
+					};
+					D423D03929CF515300708482 = {
+						CreatedOnToolsVersion = 13.2.1;
+						TestTargetID = D423D02329CF515100708482;
+					};
+					D423D04329CF515300708482 = {
+						CreatedOnToolsVersion = 13.2.1;
+						TestTargetID = D423D02329CF515100708482;
+					};
+				};
+			};
+			buildConfigurationList = D423D01F29CF515100708482 /* Build configuration list for PBXProject "AstronomyWatch" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = D423D01B29CF515100708482;
+			productRefGroup = D423D02529CF515100708482 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D423D02329CF515100708482 /* AstronomyWatch */,
+				D423D03929CF515300708482 /* AstronomyWatchTests */,
+				D423D04329CF515300708482 /* AstronomyWatchUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D423D02229CF515100708482 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D423D03429CF515300708482 /* LaunchScreen.storyboard in Resources */,
+				D423D03129CF515300708482 /* Assets.xcassets in Resources */,
+				D423D02F29CF515100708482 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D423D03829CF515300708482 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D423D04229CF515300708482 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D423D02029CF515100708482 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D423D02C29CF515100708482 /* ViewController.swift in Sources */,
+				D423D02829CF515100708482 /* AppDelegate.swift in Sources */,
+				D423D02A29CF515100708482 /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D423D03629CF515300708482 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D423D03F29CF515300708482 /* AstronomyWatchTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D423D04029CF515300708482 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D423D04929CF515300708482 /* AstronomyWatchUITests.swift in Sources */,
+				D423D04B29CF515300708482 /* AstronomyWatchUITestsLaunchTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D423D03C29CF515300708482 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D423D02329CF515100708482 /* AstronomyWatch */;
+			targetProxy = D423D03B29CF515300708482 /* PBXContainerItemProxy */;
+		};
+		D423D04629CF515300708482 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D423D02329CF515100708482 /* AstronomyWatch */;
+			targetProxy = D423D04529CF515300708482 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		D423D02D29CF515100708482 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D423D02E29CF515100708482 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		D423D03229CF515300708482 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D423D03329CF515300708482 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		D423D04C29CF515300708482 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		D423D04D29CF515300708482 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		D423D04F29CF515300708482 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 2P37A69V42;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = AstronomyWatch/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ghost.AstronomyWatch;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		D423D05029CF515300708482 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 2P37A69V42;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = AstronomyWatch/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ghost.AstronomyWatch;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		D423D05229CF515300708482 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 2P37A69V42;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ghost.AstronomyWatchTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AstronomyWatch.app/AstronomyWatch";
+			};
+			name = Debug;
+		};
+		D423D05329CF515300708482 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 2P37A69V42;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ghost.AstronomyWatchTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AstronomyWatch.app/AstronomyWatch";
+			};
+			name = Release;
+		};
+		D423D05529CF515300708482 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 2P37A69V42;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ghost.AstronomyWatchUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = AstronomyWatch;
+			};
+			name = Debug;
+		};
+		D423D05629CF515300708482 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 2P37A69V42;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ghost.AstronomyWatchUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = AstronomyWatch;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D423D01F29CF515100708482 /* Build configuration list for PBXProject "AstronomyWatch" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D423D04C29CF515300708482 /* Debug */,
+				D423D04D29CF515300708482 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D423D04E29CF515300708482 /* Build configuration list for PBXNativeTarget "AstronomyWatch" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D423D04F29CF515300708482 /* Debug */,
+				D423D05029CF515300708482 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D423D05129CF515300708482 /* Build configuration list for PBXNativeTarget "AstronomyWatchTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D423D05229CF515300708482 /* Debug */,
+				D423D05329CF515300708482 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D423D05429CF515300708482 /* Build configuration list for PBXNativeTarget "AstronomyWatchUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D423D05529CF515300708482 /* Debug */,
+				D423D05629CF515300708482 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D423D01C29CF515100708482 /* Project object */;
+}
