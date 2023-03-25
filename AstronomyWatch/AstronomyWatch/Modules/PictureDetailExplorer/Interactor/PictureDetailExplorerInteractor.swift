@@ -21,7 +21,11 @@ class PictureDetailExplorerInteractor: PictureDetailExplorerInteractorProtocol {
     }
     
     func startLoading() {
-        fetchPictureOfTheDay()
+        if let model = UserDefaults.standard.pictureOfDayModel, model.date == Date.getTodaysDateInAPIFriendlyFormat() {
+            presenterDelegate?.loadPictureOfTheDay(model: model)
+        } else {
+            fetchPictureOfTheDay()
+        }
     }
 }
 
@@ -46,6 +50,7 @@ extension PictureDetailExplorerInteractor {
             self.downloadImageFrom(URL: url) { success in
                 DispatchQueue.main.async {
                     if success {
+                        UserDefaults.standard.pictureOfDayModel = model
                         self.presenterDelegate?.loadPictureOfTheDay(model: model)
                     }
                 }
@@ -56,7 +61,8 @@ extension PictureDetailExplorerInteractor {
     private func createPictureOfTheDayRequest() -> URLRequest? {
         guard var components = URLComponents(string: "https://api.nasa.gov/planetary/apod") else { return nil }
         components.queryItems = [
-            URLQueryItem(name: "api_key", value: Bundle.main.getValueFromInfoPlist(ForKey: .NASAAPIKey))
+            URLQueryItem(name: "api_key", value: Bundle.main.getValueFromInfoPlist(ForKey: .NASAAPIKey)),
+            URLQueryItem(name: "date", value: Date.getTodaysDateInAPIFriendlyFormat())
         ]
         guard let requestURL = components.url else { return nil}
         return URLRequest(url: requestURL)

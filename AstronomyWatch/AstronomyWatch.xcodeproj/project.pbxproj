@@ -26,6 +26,8 @@
 		D423D06F29CF65AC00708482 /* PictureDetailExplorerPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D423D06E29CF65AC00708482 /* PictureDetailExplorerPresenter.swift */; };
 		D423D07229CF6ADC00708482 /* PictureOfDayModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D423D07129CF6ADB00708482 /* PictureOfDayModel.swift */; };
 		D423D07429CF7E8000708482 /* URL+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D423D07329CF7E7F00708482 /* URL+Extension.swift */; };
+		D423D07629CF83C100708482 /* UserDefaults+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D423D07529CF83C100708482 /* UserDefaults+Extension.swift */; };
+		D423D07829CF873600708482 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D423D07729CF873500708482 /* Date+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +72,8 @@
 		D423D06E29CF65AC00708482 /* PictureDetailExplorerPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PictureDetailExplorerPresenter.swift; sourceTree = "<group>"; };
 		D423D07129CF6ADB00708482 /* PictureOfDayModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PictureOfDayModel.swift; sourceTree = "<group>"; };
 		D423D07329CF7E7F00708482 /* URL+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Extension.swift"; sourceTree = "<group>"; };
+		D423D07529CF83C100708482 /* UserDefaults+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Extension.swift"; sourceTree = "<group>"; };
+		D423D07729CF873500708482 /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -158,6 +162,8 @@
 				D423D05929CF51A800708482 /* Bundle+Extension.swift */,
 				D423D05B29CF51F300708482 /* ConfigKeys.swift */,
 				D423D07329CF7E7F00708482 /* URL+Extension.swift */,
+				D423D07529CF83C100708482 /* UserDefaults+Extension.swift */,
+				D423D07729CF873500708482 /* Date+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -367,7 +373,9 @@
 				D423D05C29CF51F300708482 /* ConfigKeys.swift in Sources */,
 				D423D02C29CF515100708482 /* ViewController.swift in Sources */,
 				D423D06929CF632A00708482 /* PictureDetailExplorerViewController.swift in Sources */,
+				D423D07829CF873600708482 /* Date+Extension.swift in Sources */,
 				D423D02829CF515100708482 /* AppDelegate.swift in Sources */,
+				D423D07629CF83C100708482 /* UserDefaults+Extension.swift in Sources */,
 				D423D07229CF6ADC00708482 /* PictureOfDayModel.swift in Sources */,
 				D423D06329CF559A00708482 /* BaseCoordinator.swift in Sources */,
 				D423D07429CF7E8000708482 /* URL+Extension.swift in Sources */,

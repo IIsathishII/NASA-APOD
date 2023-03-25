@@ -9,6 +9,7 @@ import Foundation
 
 struct PictureOfDayModel: Codable {
     
+    var date: String?
     var title: String?
     var explanation: String?
     var url: URL?
@@ -16,6 +17,7 @@ struct PictureOfDayModel: Codable {
     
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
+        date = try? container.decode(String.self, forKey: .date)
         title = try? container.decode(String.self, forKey: .title)
         explanation = try? container.decode(String.self, forKey: .explanation)
         
