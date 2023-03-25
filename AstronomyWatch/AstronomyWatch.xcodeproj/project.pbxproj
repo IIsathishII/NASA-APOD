@@ -18,6 +18,14 @@
 		D423D04B29CF515300708482 /* AstronomyWatchUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D423D04A29CF515300708482 /* AstronomyWatchUITestsLaunchTests.swift */; };
 		D423D05A29CF51A800708482 /* Bundle+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D423D05929CF51A800708482 /* Bundle+Extension.swift */; };
 		D423D05C29CF51F300708482 /* ConfigKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = D423D05B29CF51F300708482 /* ConfigKeys.swift */; };
+		D423D06029CF551300708482 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D423D05F29CF551300708482 /* AppCoordinator.swift */; };
+		D423D06329CF559A00708482 /* BaseCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D423D06229CF559A00708482 /* BaseCoordinator.swift */; };
+		D423D06729CF5EC200708482 /* PictureDetailExplorerCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D423D06629CF5EC200708482 /* PictureDetailExplorerCoordinator.swift */; };
+		D423D06929CF632A00708482 /* PictureDetailExplorerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D423D06829CF632A00708482 /* PictureDetailExplorerViewController.swift */; };
+		D423D06D29CF64A600708482 /* PictureDetailExplorerInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D423D06C29CF64A600708482 /* PictureDetailExplorerInteractor.swift */; };
+		D423D06F29CF65AC00708482 /* PictureDetailExplorerPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D423D06E29CF65AC00708482 /* PictureDetailExplorerPresenter.swift */; };
+		D423D07229CF6ADC00708482 /* PictureOfDayModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D423D07129CF6ADB00708482 /* PictureOfDayModel.swift */; };
+		D423D07429CF7E8000708482 /* URL+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D423D07329CF7E7F00708482 /* URL+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +62,14 @@
 		D423D05729CF517C00708482 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 		D423D05929CF51A800708482 /* Bundle+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Extension.swift"; sourceTree = "<group>"; };
 		D423D05B29CF51F300708482 /* ConfigKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigKeys.swift; sourceTree = "<group>"; };
+		D423D05F29CF551300708482 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		D423D06229CF559A00708482 /* BaseCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCoordinator.swift; sourceTree = "<group>"; };
+		D423D06629CF5EC200708482 /* PictureDetailExplorerCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PictureDetailExplorerCoordinator.swift; sourceTree = "<group>"; };
+		D423D06829CF632A00708482 /* PictureDetailExplorerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PictureDetailExplorerViewController.swift; sourceTree = "<group>"; };
+		D423D06C29CF64A600708482 /* PictureDetailExplorerInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PictureDetailExplorerInteractor.swift; sourceTree = "<group>"; };
+		D423D06E29CF65AC00708482 /* PictureDetailExplorerPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PictureDetailExplorerPresenter.swift; sourceTree = "<group>"; };
+		D423D07129CF6ADB00708482 /* PictureOfDayModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PictureOfDayModel.swift; sourceTree = "<group>"; };
+		D423D07329CF7E7F00708482 /* URL+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +120,8 @@
 		D423D02629CF515100708482 /* AstronomyWatch */ = {
 			isa = PBXGroup;
 			children = (
+				D423D06129CF558A00708482 /* App */,
+				D423D05D29CF53F000708482 /* Modules */,
 				D423D05829CF519B00708482 /* Extensions */,
 				D423D02729CF515100708482 /* AppDelegate.swift */,
 				D423D02929CF515100708482 /* SceneDelegate.swift */,
@@ -139,8 +157,78 @@
 			children = (
 				D423D05929CF51A800708482 /* Bundle+Extension.swift */,
 				D423D05B29CF51F300708482 /* ConfigKeys.swift */,
+				D423D07329CF7E7F00708482 /* URL+Extension.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		D423D05D29CF53F000708482 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				D423D05E29CF53F600708482 /* PictureDetailExplorer */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		D423D05E29CF53F600708482 /* PictureDetailExplorer */ = {
+			isa = PBXGroup;
+			children = (
+				D423D07029CF69DC00708482 /* Models */,
+				D423D06B29CF637200708482 /* Presenter */,
+				D423D06A29CF636800708482 /* Interactor */,
+				D423D06529CF5EAC00708482 /* Coordinator */,
+				D423D06429CF5E9D00708482 /* Views */,
+			);
+			path = PictureDetailExplorer;
+			sourceTree = "<group>";
+		};
+		D423D06129CF558A00708482 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				D423D05F29CF551300708482 /* AppCoordinator.swift */,
+				D423D06229CF559A00708482 /* BaseCoordinator.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		D423D06429CF5E9D00708482 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				D423D06829CF632A00708482 /* PictureDetailExplorerViewController.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		D423D06529CF5EAC00708482 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				D423D06629CF5EC200708482 /* PictureDetailExplorerCoordinator.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		D423D06A29CF636800708482 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				D423D06C29CF64A600708482 /* PictureDetailExplorerInteractor.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		D423D06B29CF637200708482 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				D423D06E29CF65AC00708482 /* PictureDetailExplorerPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		D423D07029CF69DC00708482 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				D423D07129CF6ADB00708482 /* PictureOfDayModel.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -274,11 +362,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D423D06029CF551300708482 /* AppCoordinator.swift in Sources */,
+				D423D06F29CF65AC00708482 /* PictureDetailExplorerPresenter.swift in Sources */,
 				D423D05C29CF51F300708482 /* ConfigKeys.swift in Sources */,
 				D423D02C29CF515100708482 /* ViewController.swift in Sources */,
+				D423D06929CF632A00708482 /* PictureDetailExplorerViewController.swift in Sources */,
 				D423D02829CF515100708482 /* AppDelegate.swift in Sources */,
+				D423D07229CF6ADC00708482 /* PictureOfDayModel.swift in Sources */,
+				D423D06329CF559A00708482 /* BaseCoordinator.swift in Sources */,
+				D423D07429CF7E8000708482 /* URL+Extension.swift in Sources */,
+				D423D06729CF5EC200708482 /* PictureDetailExplorerCoordinator.swift in Sources */,
 				D423D02A29CF515100708482 /* SceneDelegate.swift in Sources */,
 				D423D05A29CF51A800708482 /* Bundle+Extension.swift in Sources */,
+				D423D06D29CF64A600708482 /* PictureDetailExplorerInteractor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -386,7 +482,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -442,7 +538,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
