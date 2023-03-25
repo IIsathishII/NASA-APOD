@@ -16,6 +16,8 @@
 		D423D03F29CF515300708482 /* AstronomyWatchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D423D03E29CF515300708482 /* AstronomyWatchTests.swift */; };
 		D423D04929CF515300708482 /* AstronomyWatchUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D423D04829CF515300708482 /* AstronomyWatchUITests.swift */; };
 		D423D04B29CF515300708482 /* AstronomyWatchUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D423D04A29CF515300708482 /* AstronomyWatchUITestsLaunchTests.swift */; };
+		D423D05A29CF51A800708482 /* Bundle+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D423D05929CF51A800708482 /* Bundle+Extension.swift */; };
+		D423D05C29CF51F300708482 /* ConfigKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = D423D05B29CF51F300708482 /* ConfigKeys.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +51,9 @@
 		D423D04429CF515300708482 /* AstronomyWatchUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AstronomyWatchUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D423D04829CF515300708482 /* AstronomyWatchUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AstronomyWatchUITests.swift; sourceTree = "<group>"; };
 		D423D04A29CF515300708482 /* AstronomyWatchUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AstronomyWatchUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		D423D05729CF517C00708482 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
+		D423D05929CF51A800708482 /* Bundle+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Extension.swift"; sourceTree = "<group>"; };
+		D423D05B29CF51F300708482 /* ConfigKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigKeys.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +104,7 @@
 		D423D02629CF515100708482 /* AstronomyWatch */ = {
 			isa = PBXGroup;
 			children = (
+				D423D05829CF519B00708482 /* Extensions */,
 				D423D02729CF515100708482 /* AppDelegate.swift */,
 				D423D02929CF515100708482 /* SceneDelegate.swift */,
 				D423D02B29CF515100708482 /* ViewController.swift */,
@@ -106,6 +112,7 @@
 				D423D03029CF515300708482 /* Assets.xcassets */,
 				D423D03229CF515300708482 /* LaunchScreen.storyboard */,
 				D423D03529CF515300708482 /* Info.plist */,
+				D423D05729CF517C00708482 /* Config.xcconfig */,
 			);
 			path = AstronomyWatch;
 			sourceTree = "<group>";
@@ -125,6 +132,15 @@
 				D423D04A29CF515300708482 /* AstronomyWatchUITestsLaunchTests.swift */,
 			);
 			path = AstronomyWatchUITests;
+			sourceTree = "<group>";
+		};
+		D423D05829CF519B00708482 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				D423D05929CF51A800708482 /* Bundle+Extension.swift */,
+				D423D05B29CF51F300708482 /* ConfigKeys.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -258,9 +274,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D423D05C29CF51F300708482 /* ConfigKeys.swift in Sources */,
 				D423D02C29CF515100708482 /* ViewController.swift in Sources */,
 				D423D02829CF515100708482 /* AppDelegate.swift in Sources */,
 				D423D02A29CF515100708482 /* SceneDelegate.swift in Sources */,
+				D423D05A29CF51A800708482 /* Bundle+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -318,6 +336,7 @@
 /* Begin XCBuildConfiguration section */
 		D423D04C29CF515300708482 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D423D05729CF517C00708482 /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -379,6 +398,7 @@
 		};
 		D423D04D29CF515300708482 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D423D05729CF517C00708482 /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;

@@ -1,0 +1,11 @@
+//
+//  Config.xcconfig
+//  AstronomyWatch
+//
+//  Created by Sathish Kumar S on 25/03/23.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+NASA_API_KEY = //Enter API Key here
