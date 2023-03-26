@@ -17,10 +17,16 @@ class PictureDetailExplorerInteractor: PictureDetailExplorerInteractorProtocol {
     var presenterDelegate: PictureDetailExplorerPresenterProtocol?
     var urlSession = URLSession(configuration: .default)
     
+    var fetchDidFail = false
+    
     init() {
-//        NetworkMonitor.shared.callback = { path in
-//
-//        }
+        NetworkMonitor.shared.setCallback { [weak self] status in
+            guard let self = self else { return }
+            if status == .satisfied, self.fetchDidFail {
+                self.fetchPictureOfTheDay()
+                self.fetchDidFail = false
+            }
+        }
     }
     
     func startLoading() {
@@ -41,6 +47,7 @@ extension PictureDetailExplorerInteractor {
     
     private func fetchPictureOfTheDay() {
         guard let request = createPictureOfTheDayRequest() else { return }
+        self.presenterDelegate?.didStartLoading()
         let task = urlSession.dataTask(with: request) { data, response, error in
             DispatchQueue.main.async {
                 if error != nil || data == nil || (response as? HTTPURLResponse)?.statusCode != 200 {
@@ -56,6 +63,7 @@ extension PictureDetailExplorerInteractor {
     }
     
     private func fetchPictureModelDidFail() {
+        self.fetchDidFail = true
         if let model = UserDefaults.standard.pictureOfDayModel {
             self.presenterDelegate?.loadPictureOfTheDay(model: model)
             self.presenterDelegate?.handleLoadPictureOfTheDayDidFail()
@@ -66,6 +74,7 @@ extension PictureDetailExplorerInteractor {
         if let url = model.hdurl {
             self.downloadImageFrom(URL: url) { success in
                 DispatchQueue.main.async {
+                    self.presenterDelegate?.didEndLoading()
                     if success {
                         UserDefaults.standard.pictureOfDayModel = model
                         self.presenterDelegate?.loadPictureOfTheDay(model: model)

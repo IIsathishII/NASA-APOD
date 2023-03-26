@@ -9,6 +9,8 @@ import Foundation
 
 protocol PictureDetailExplorerPresenterProtocol: AnyObject {
     func loadPictureOfTheDay(model: PictureOfDayModel)
+    func didStartLoading()
+    func didEndLoading()
     func handleLoadPictureOfTheDayDidFail()
 }
 
@@ -30,5 +32,13 @@ class PictureDetailExplorerPresenter: PictureDetailExplorerPresenterProtocol {
     
     func handleLoadPictureOfTheDayDidFail() {
         self.viewDelegate?.showErrorPopupWith(Message: "You are not connected to the Internet. We are showing the last image you viewed. Please connect back to the internet ")
+    }
+    
+    func didStartLoading() {
+        self.viewDelegate?.showLoader(true)
+    }
+    
+    func didEndLoading() {
+        self.viewDelegate?.showLoader(false)
     }
 }

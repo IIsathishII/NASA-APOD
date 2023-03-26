@@ -11,11 +11,11 @@ import Network
 class NetworkMonitor {
     static let shared = NetworkMonitor()
 
-    let monitor = NWPathMonitor()
+    private let monitor = NWPathMonitor()
     private var status: NWPath.Status = .requiresConnection
     var isReachable: Bool { status == .satisfied }
     
-    var callback: ((NWPath) -> ())? = nil
+    private var callback: ((NWPath.Status) -> ())? = nil
     
     private init() {
 
@@ -24,8 +24,9 @@ class NetworkMonitor {
     func startMonitoring() {
         monitor.pathUpdateHandler = { [weak self] path in
             self?.status = path.status
-            self?.callback?(path)
-            print("Status :: ", path.status)
+            DispatchQueue.main.async {
+                self?.callback?(path.status)
+            }
         }
 
         let queue = DispatchQueue(label: "NetworkMonitor")
@@ -34,5 +35,9 @@ class NetworkMonitor {
 
     func stopMonitoring() {
         monitor.cancel()
+    }
+    
+    func setCallback(_ callback: ((NWPath.Status) -> ())?) {
+        self.callback = callback
     }
 }

@@ -11,6 +11,7 @@ import UIKit
 protocol PictureDetailExplorerViewProtocol: AnyObject {
     func constructViewWith(Model model: PictureOfDayModel)
     func showErrorPopupWith(Message message: String)
+    func showLoader(_ value: Bool)
 }
 
 class PictureDetailExplorerViewController: UIViewController, PictureDetailExplorerViewProtocol {
@@ -18,10 +19,12 @@ class PictureDetailExplorerViewController: UIViewController, PictureDetailExplor
     var interactorDelegate: PictureDetailExplorerInteractorProtocol?
     
     var scrollView = UIScrollView()
+    var loader = UIActivityIndicatorView(style: .medium)
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setDefaultProperties()
+        self.setupLoader()
         self.setupScrollView()
         self.interactorDelegate?.startLoading()
     }
@@ -29,6 +32,17 @@ class PictureDetailExplorerViewController: UIViewController, PictureDetailExplor
     func setDefaultProperties() {
         self.title = "Picture of the day"
         self.view.backgroundColor = UIColor.white
+    }
+    
+    func setupLoader() {
+        self.loader.hidesWhenStopped = true
+        self.view.addSubview(loader)
+        self.loader.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            self.loader.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
+            self.loader.centerYAnchor.constraint(equalTo: self.view.centerYAnchor),
+        ])
     }
     
     func setupScrollView() {
@@ -44,6 +58,10 @@ class PictureDetailExplorerViewController: UIViewController, PictureDetailExplor
     }
     
     func constructViewWith(Model model: PictureOfDayModel) {
+        for subview in self.scrollView.subviews {
+            subview.removeFromSuperview()
+        }
+        
         let contentView = UIView()
         
         var constraints = [NSLayoutConstraint]()
@@ -114,5 +132,13 @@ class PictureDetailExplorerViewController: UIViewController, PictureDetailExplor
         let alertController = UIAlertController(title: nil, message: message, preferredStyle: .alert)
         alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
         self.navigationController?.present(alertController, animated: true, completion: nil)
+    }
+    
+    func showLoader(_ value: Bool) {
+        if value {
+            self.loader.startAnimating()
+        } else {
+            self.loader.stopAnimating()
+        }
     }
 }
