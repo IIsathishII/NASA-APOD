@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		D41D91CC29D0BC6F00A58386 /* PictureDetailExplorerViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D41D91CB29D0BC6F00A58386 /* PictureDetailExplorerViewControllerTests.swift */; };
 		D41D91CE29D139E900A58386 /* PictureDetailExplorerInteractorMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = D41D91CD29D139E900A58386 /* PictureDetailExplorerInteractorMock.swift */; };
+		D41D91D029D14E0D00A58386 /* PictureDetailExplorerPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D41D91CF29D14E0D00A58386 /* PictureDetailExplorerPresenterTests.swift */; };
+		D41D91D229D152EF00A58386 /* PictureDetailExplorerViewSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = D41D91D129D152EF00A58386 /* PictureDetailExplorerViewSpy.swift */; };
 		D423D02829CF515100708482 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D423D02729CF515100708482 /* AppDelegate.swift */; };
 		D423D02A29CF515100708482 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D423D02929CF515100708482 /* SceneDelegate.swift */; };
 		D423D02C29CF515100708482 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D423D02B29CF515100708482 /* ViewController.swift */; };
@@ -53,6 +55,8 @@
 /* Begin PBXFileReference section */
 		D41D91CB29D0BC6F00A58386 /* PictureDetailExplorerViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PictureDetailExplorerViewControllerTests.swift; sourceTree = "<group>"; };
 		D41D91CD29D139E900A58386 /* PictureDetailExplorerInteractorMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PictureDetailExplorerInteractorMock.swift; sourceTree = "<group>"; };
+		D41D91CF29D14E0D00A58386 /* PictureDetailExplorerPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PictureDetailExplorerPresenterTests.swift; sourceTree = "<group>"; };
+		D41D91D129D152EF00A58386 /* PictureDetailExplorerViewSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PictureDetailExplorerViewSpy.swift; sourceTree = "<group>"; };
 		D423D02429CF515100708482 /* AstronomyWatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AstronomyWatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D423D02729CF515100708482 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D423D02929CF515100708482 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -148,9 +152,11 @@
 		D423D03D29CF515300708482 /* AstronomyWatchTests */ = {
 			isa = PBXGroup;
 			children = (
+				D41D91CF29D14E0D00A58386 /* PictureDetailExplorerPresenterTests.swift */,
 				D41D91CB29D0BC6F00A58386 /* PictureDetailExplorerViewControllerTests.swift */,
 				D423D03E29CF515300708482 /* AstronomyWatchTests.swift */,
 				D41D91CD29D139E900A58386 /* PictureDetailExplorerInteractorMock.swift */,
+				D41D91D129D152EF00A58386 /* PictureDetailExplorerViewSpy.swift */,
 			);
 			path = AstronomyWatchTests;
 			sourceTree = "<group>";
@@ -401,8 +407,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				D41D91CE29D139E900A58386 /* PictureDetailExplorerInteractorMock.swift in Sources */,
+				D41D91D229D152EF00A58386 /* PictureDetailExplorerViewSpy.swift in Sources */,
 				D423D03F29CF515300708482 /* AstronomyWatchTests.swift in Sources */,
 				D41D91CC29D0BC6F00A58386 /* PictureDetailExplorerViewControllerTests.swift in Sources */,
+				D41D91D029D14E0D00A58386 /* PictureDetailExplorerPresenterTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
