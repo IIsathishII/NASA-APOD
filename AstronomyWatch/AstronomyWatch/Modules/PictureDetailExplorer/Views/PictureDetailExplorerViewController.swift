@@ -20,6 +20,10 @@ class PictureDetailExplorerViewController: UIViewController, PictureDetailExplor
     
     var scrollView = UIScrollView()
     var loader = UIActivityIndicatorView(style: .medium)
+    var alertController: UIAlertController?
+    var titleText: UILabel?
+    var explanationText: UILabel?
+    var imageView: UIImageView?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,6 +65,9 @@ class PictureDetailExplorerViewController: UIViewController, PictureDetailExplor
         for subview in self.scrollView.subviews {
             subview.removeFromSuperview()
         }
+        self.imageView = nil
+        self.titleText = nil
+        self.explanationText = nil
         
         let contentView = UIView()
         
@@ -77,7 +84,7 @@ class PictureDetailExplorerViewController: UIViewController, PictureDetailExplor
             contentView.widthAnchor.constraint(equalTo: self.scrollView.widthAnchor)
         ])
         
-        if let imageURL = model.hdurl?.getLocalFileURL(), let image = UIImage(contentsOfFile: imageURL.path) {
+        if let imageURL = model.hdurl?.getLocalFileURL(), let image = interactorDelegate?.getImageFor(Path: imageURL.path) {
             let imageView = UIImageView(image: image)
             imageView.backgroundColor = UIColor.black
             imageView.contentMode = .scaleAspectFit
@@ -91,6 +98,7 @@ class PictureDetailExplorerViewController: UIViewController, PictureDetailExplor
                 imageView.heightAnchor.constraint(lessThanOrEqualToConstant: UIScreen.main.bounds.height/2)
             ])
             topAnchor = imageView.bottomAnchor
+            self.imageView = imageView
         }
         
         if let title = model.title {
@@ -107,6 +115,7 @@ class PictureDetailExplorerViewController: UIViewController, PictureDetailExplor
                 titleText.topAnchor.constraint(equalTo: topAnchor, constant: 16)
             ])
             topAnchor = titleText.bottomAnchor
+            self.titleText = titleText
         }
         
         if let explanation = model.explanation {
@@ -123,15 +132,16 @@ class PictureDetailExplorerViewController: UIViewController, PictureDetailExplor
                 explanationText.topAnchor.constraint(equalTo: topAnchor, constant: 16),
                 explanationText.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
             ])
+            self.explanationText = explanationText
         }
         
         NSLayoutConstraint.activate(constraints)
     }
     
     func showErrorPopupWith(Message message: String) {
-        let alertController = UIAlertController(title: nil, message: message, preferredStyle: .alert)
-        alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-        self.navigationController?.present(alertController, animated: true, completion: nil)
+        self.alertController = UIAlertController(title: nil, message: message, preferredStyle: .alert)
+        self.alertController?.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        self.navigationController?.present(alertController!, animated: true, completion: nil)
     }
     
     func showLoader(_ value: Bool) {

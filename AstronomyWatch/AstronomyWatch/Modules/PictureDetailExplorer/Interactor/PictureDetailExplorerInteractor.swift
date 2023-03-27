@@ -7,9 +7,11 @@
 
 import Foundation
 import Network
+import UIKit
 
 protocol PictureDetailExplorerInteractorProtocol: AnyObject {
     func startLoading()
+    func getImageFor(Path path: String) -> UIImage?
 }
 
 class PictureDetailExplorerInteractor: PictureDetailExplorerInteractorProtocol {
@@ -41,6 +43,10 @@ class PictureDetailExplorerInteractor: PictureDetailExplorerInteractorProtocol {
             // Handle scenario where phone is not connected to internet and app is opened for the first time.
         }
     }
+    
+    func getImageFor(Path path: String) -> UIImage? {
+        UIImage(contentsOfFile: path)
+    }
 }
 
 extension PictureDetailExplorerInteractor {
@@ -71,17 +77,27 @@ extension PictureDetailExplorerInteractor {
     }
     
     private func didFetchPictureModel(model: PictureOfDayModel) {
-        if let url = model.hdurl {
+        if let url = model.url, self.isValidImageFormat(ext: url.pathExtension) {
             self.downloadImageFrom(URL: url) { success in
                 DispatchQueue.main.async {
-                    self.presenterDelegate?.didEndLoading()
                     if success {
-                        UserDefaults.standard.pictureOfDayModel = model
-                        self.presenterDelegate?.loadPictureOfTheDay(model: model)
+                        self.loadPictureOfDay(model: model)
                     }
                 }
             }
+        } else {
+            self.loadPictureOfDay(model: model)
         }
+    }
+    
+    private func loadPictureOfDay(model: PictureOfDayModel) {
+        self.presenterDelegate?.didEndLoading()
+        UserDefaults.standard.pictureOfDayModel = model
+        self.presenterDelegate?.loadPictureOfTheDay(model: model)
+    }
+    
+    private func isValidImageFormat(ext: String) -> Bool {
+        ext == "jpg" || ext == "png" || ext == "jpeg"
     }
     
     private func createPictureOfTheDayRequest() -> URLRequest? {

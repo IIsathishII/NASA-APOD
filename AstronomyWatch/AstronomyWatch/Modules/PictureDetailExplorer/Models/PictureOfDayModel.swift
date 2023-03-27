@@ -29,4 +29,12 @@ struct PictureOfDayModel: Codable {
             hdurl = URL(string: hdurlStr)
         }
     }
+    
+    init(date: String?, title: String?, explanation: String?, url: URL?, hdUrl: URL?) {
+        self.date = date
+        self.title = title
+        self.explanation = explanation
+        self.url = url
+        self.hdurl = hdUrl
+    }
 }
