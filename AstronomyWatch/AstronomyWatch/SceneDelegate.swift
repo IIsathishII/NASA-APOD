@@ -29,6 +29,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         self.appCoordinator?.start()
         
         self.window?.makeKeyAndVisible()
+        self.handleUITesting()
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
@@ -69,5 +70,31 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         return navController
     }
 
+    func handleUITesting() {
+        guard ProcessInfo.processInfo.arguments.contains("Testing") else { return }
+        let shouldCache = ProcessInfo.processInfo.arguments.contains("Cached")
+        if shouldCache {
+            let model = PictureOfDayModel(date: "2023-03-27",
+                                          title: "Outbound Comet ZTF",
+                                          explanation: "About Comet ZTF",
+                                          url: URL(string: "https://apod.nasa.gov/apod/image/2303/C2022E3_230321_1024.jpg"),
+                                          hdUrl: URL(string: "https://apod.nasa.gov/apod/image/2303/C2022E3_230321_1024.jpg"))
+            UserDefaults.standard.pictureOfDayModel = model
+            try? self.copyBundledImageToDocumentDirectory()
+        } else {
+            UserDefaults.standard.pictureOfDayModel = nil
+        }
+    }
+    
+    func copyBundledImageToDocumentDirectory() throws {
+        if let target = Bundle.main.url(forResource: "C2022E3_230321_1024", withExtension: "jpg") {
+            if let documentDir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {
+                let fileName = target.lastPathComponent
+                let destination = documentDir.appendingPathComponent(fileName)
+                
+                try FileManager.default.copyItem(at: target, to: destination)
+            }
+        }
+    }
 }
 

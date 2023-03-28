@@ -41,6 +41,7 @@
 		D4B92EBA29D29A76000D916D /* AWFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B92EB929D29A76000D916D /* AWFileManager.swift */; };
 		D4B92EBC29D29CCF000D916D /* AWFileManagerSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B92EBB29D29CCF000D916D /* AWFileManagerSpy.swift */; };
 		D4B92EBE29D29E71000D916D /* PictureDetailExplorerPresenterSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B92EBD29D29E71000D916D /* PictureDetailExplorerPresenterSpy.swift */; };
+		D4B92EE629D3264A000D916D /* C2022E3_230321_1024.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D4B92EE529D32649000D916D /* C2022E3_230321_1024.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -100,6 +101,7 @@
 		D4B92EB929D29A76000D916D /* AWFileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AWFileManager.swift; sourceTree = "<group>"; };
 		D4B92EBB29D29CCF000D916D /* AWFileManagerSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AWFileManagerSpy.swift; sourceTree = "<group>"; };
 		D4B92EBD29D29E71000D916D /* PictureDetailExplorerPresenterSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PictureDetailExplorerPresenterSpy.swift; sourceTree = "<group>"; };
+		D4B92EE529D32649000D916D /* C2022E3_230321_1024.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = C2022E3_230321_1024.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,6 +157,7 @@
 				D423D05829CF519B00708482 /* Extensions */,
 				D423D02729CF515100708482 /* AppDelegate.swift */,
 				D423D02929CF515100708482 /* SceneDelegate.swift */,
+				D4B92EE529D32649000D916D /* C2022E3_230321_1024.jpg */,
 				D423D02B29CF515100708482 /* ViewController.swift */,
 				D423D02D29CF515100708482 /* Main.storyboard */,
 				D423D03029CF515300708482 /* Assets.xcassets */,
@@ -383,6 +386,7 @@
 				D423D03429CF515300708482 /* LaunchScreen.storyboard in Resources */,
 				D423D03129CF515300708482 /* Assets.xcassets in Resources */,
 				D423D02F29CF515100708482 /* Main.storyboard in Resources */,
+				D4B92EE629D3264A000D916D /* C2022E3_230321_1024.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

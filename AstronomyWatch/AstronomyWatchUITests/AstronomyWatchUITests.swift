@@ -6,36 +6,52 @@
 //
 
 import XCTest
+import AstronomyWatch
 
 class AstronomyWatchUITests: XCTestCase {
 
     override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-
-        // In UI tests it is usually best to stop immediately when a failure occurs.
         continueAfterFailure = false
-
-        // In UI tests it’s important to set the initial state - such as interface orientation - required for your tests before they run. The setUp method is a good place to do this.
+        try self.removeFilesFromDocumentDirectory()
     }
 
     override func tearDownWithError() throws {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testExample() throws {
-        // UI tests must launch the application that they test.
+    func testAstronomyPictureOfDayRemoteFetch() throws {
         let app = XCUIApplication()
+        app.launchArguments = ["Testing"]
         app.launch()
 
-        // Use recording to get started writing UI tests.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+        let doesNotExistPredicate = NSPredicate(format: "exists == FALSE")
+        let loader = app.activityIndicators["loaderIndicator"]
+        self.expectation(for: doesNotExistPredicate, evaluatedWith: loader)
+        self.waitForExpectations(timeout: 15)
+        
+        XCTAssert(app.staticTexts["apodTitle"].exists, "APOD Title is not available")
+        XCTAssert(app.staticTexts["apodExplanation"].exists, "APOD Title is not available")
     }
+    
+    func testAstronomyPictureOfTheDayCached() throws {
+        let app = XCUIApplication()
+        app.launchArguments = ["Testing", "Cached"]
+        app.launch()
 
-    func testLaunchPerformance() throws {
-        if #available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 7.0, *) {
-            // This measures how long it takes to launch your application.
-            measure(metrics: [XCTApplicationLaunchMetric()]) {
-                XCUIApplication().launch()
+        XCTAssert(app.images["apodImage"].exists, "APOD Image is not available")
+        XCTAssert(app.staticTexts["apodTitle"].exists, "APOD Title is not available")
+        XCTAssert(app.staticTexts["apodExplanation"].exists, "APOD Title is not available")
+    }
+}
+
+extension AstronomyWatchUITests {
+    
+    func removeFilesFromDocumentDirectory() throws {
+        if let documentDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first,
+            let files = try? FileManager.default.contentsOfDirectory(atPath: documentDirectory.path) {
+            for file in files {
+                let filePath = documentDirectory.appendingPathComponent(file)
+                try FileManager.default.removeItem(at: filePath)
             }
         }
     }

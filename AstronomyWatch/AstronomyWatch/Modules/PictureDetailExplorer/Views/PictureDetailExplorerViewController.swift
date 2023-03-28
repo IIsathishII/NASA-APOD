@@ -39,6 +39,7 @@ class PictureDetailExplorerViewController: UIViewController, PictureDetailExplor
     }
     
     func setupLoader() {
+        self.loader.accessibilityIdentifier = "loaderIndicator"
         self.loader.hidesWhenStopped = true
         self.view.addSubview(loader)
         self.loader.translatesAutoresizingMaskIntoConstraints = false
@@ -86,6 +87,7 @@ class PictureDetailExplorerViewController: UIViewController, PictureDetailExplor
         
         if let imageURL = model.url?.getLocalFileURL(), let image = interactorDelegate?.getImageFor(Path: imageURL.path) {
             let imageView = UIImageView(image: image)
+            imageView.accessibilityIdentifier = "apodImage"
             imageView.backgroundColor = UIColor.black
             imageView.contentMode = .scaleAspectFit
             imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -103,6 +105,7 @@ class PictureDetailExplorerViewController: UIViewController, PictureDetailExplor
         
         if let title = model.title {
             let titleText = UILabel()
+            titleText.accessibilityIdentifier = "apodTitle"
             titleText.text = title
             titleText.font = UIFont.boldSystemFont(ofSize: 20)
             titleText.numberOfLines = 0
@@ -120,6 +123,7 @@ class PictureDetailExplorerViewController: UIViewController, PictureDetailExplor
         
         if let explanation = model.explanation {
             let explanationText = UILabel()
+            explanationText.accessibilityIdentifier = "apodExplanation"
             explanationText.text = explanation
             explanationText.font = UIFont.systemFont(ofSize: 14)
             explanationText.numberOfLines = 0
