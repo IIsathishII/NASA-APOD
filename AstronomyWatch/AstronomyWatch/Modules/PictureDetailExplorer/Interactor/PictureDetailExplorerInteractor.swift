@@ -26,6 +26,7 @@ class PictureDetailExplorerInteractor: PictureDetailExplorerInteractorProtocol {
         self.dataService = dataService
         self.fileManager = fileManager
         
+        //Registers a callback to be called when network status changes
         NetworkMonitor.shared.setCallback { [weak self] status in
             guard let self = self else { return }
             if status == .satisfied, self.fetchDidFail {
@@ -35,6 +36,7 @@ class PictureDetailExplorerInteractor: PictureDetailExplorerInteractorProtocol {
         }
     }
     
+    //Decides how to fetch APOD. If cached and valid, uses local version. Fetches from remote otherwise
     func startLoading() {
         if let model = UserDefaults.standard.pictureOfDayModel, model.date == Date.getTodaysDateInAPIFriendlyFormat() {
             presenterDelegate?.loadPictureOfTheDay(model: model)
@@ -55,6 +57,7 @@ class PictureDetailExplorerInteractor: PictureDetailExplorerInteractorProtocol {
 
 extension PictureDetailExplorerInteractor {
     
+    //Makes the request to fetch APOD
     func fetchPictureOfTheDay() {
         self.presenterDelegate?.didStartLoading()
         self.dataService.fetchPOD { model in
@@ -65,6 +68,7 @@ extension PictureDetailExplorerInteractor {
 
     }
     
+    //Handles when the APOD fetch fails
     func fetchPictureModelDidFail() {
         self.fetchDidFail = true
         if let model = UserDefaults.standard.pictureOfDayModel {
@@ -73,6 +77,7 @@ extension PictureDetailExplorerInteractor {
         }
     }
     
+    //Once APOD is fetched, downloads the file from the url and stores it locally
     func didFetchPictureModel(model: PictureOfDayModel) {
         if let url = model.url, self.isValidImageFormat(ext: url.pathExtension) {
             self.dataService.downloadPOD(url: url) { tempURL in
@@ -100,8 +105,8 @@ extension PictureDetailExplorerInteractor {
         self.presenterDelegate?.loadPictureOfTheDay(model: model)
     }
     
+    //APOD supports only three formats
     func isValidImageFormat(ext: String) -> Bool {
         ext == "jpg" || ext == "png" || ext == "jpeg"
     }
 }
-//
