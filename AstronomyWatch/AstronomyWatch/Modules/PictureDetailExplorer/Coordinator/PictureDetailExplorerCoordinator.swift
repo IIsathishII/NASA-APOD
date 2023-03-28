@@ -26,7 +26,7 @@ class PictureDetailExplorerCoordinator: BaseCoordinator {
     func showDetailedView() {
         let presenter = PictureDetailExplorerPresenter(coordinator: self)
         let viewController = PictureDetailExplorerViewController()
-        let interactor = PictureDetailExplorerInteractor()
+        let interactor = PictureDetailExplorerInteractor(dataService: PictureDetailExplorerDataService(), fileManager: AWFileManager())
         
         viewController.interactorDelegate = interactor
         interactor.presenterDelegate = presenter

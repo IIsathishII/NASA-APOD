@@ -26,8 +26,7 @@ class PictureOfDayModelTests: XCTestCase {
 
     func testModel() throws {
         let model = try JSONDecoder().decode(PictureOfDayModel.self, from: self.data)
-        
-        print(model)
+
         XCTAssertNotNil(model.date, "Date should not be nil")
         XCTAssertNotNil(model.title, "Title should not be nil")
         XCTAssertNotNil(model.explanation, "Explanation should not be nil")

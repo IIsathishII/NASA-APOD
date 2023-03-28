@@ -35,6 +35,12 @@
 		D423D07629CF83C100708482 /* UserDefaults+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D423D07529CF83C100708482 /* UserDefaults+Extension.swift */; };
 		D423D07829CF873600708482 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D423D07729CF873500708482 /* Date+Extension.swift */; };
 		D423D07A29CF914300708482 /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D423D07929CF914300708482 /* NetworkMonitor.swift */; };
+		D4B92EB429D28F2C000D916D /* PictureDetailExplorerDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B92EB329D28F2C000D916D /* PictureDetailExplorerDataService.swift */; };
+		D4B92EB629D29394000D916D /* PictureDetailExplorerInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B92EB529D29394000D916D /* PictureDetailExplorerInteractorTests.swift */; };
+		D4B92EB829D29746000D916D /* PictureDetailExplorerDataServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B92EB729D29746000D916D /* PictureDetailExplorerDataServiceMock.swift */; };
+		D4B92EBA29D29A76000D916D /* AWFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B92EB929D29A76000D916D /* AWFileManager.swift */; };
+		D4B92EBC29D29CCF000D916D /* AWFileManagerSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B92EBB29D29CCF000D916D /* AWFileManagerSpy.swift */; };
+		D4B92EBE29D29E71000D916D /* PictureDetailExplorerPresenterSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B92EBD29D29E71000D916D /* PictureDetailExplorerPresenterSpy.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -88,6 +94,12 @@
 		D423D07529CF83C100708482 /* UserDefaults+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Extension.swift"; sourceTree = "<group>"; };
 		D423D07729CF873500708482 /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 		D423D07929CF914300708482 /* NetworkMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
+		D4B92EB329D28F2C000D916D /* PictureDetailExplorerDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PictureDetailExplorerDataService.swift; sourceTree = "<group>"; };
+		D4B92EB529D29394000D916D /* PictureDetailExplorerInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PictureDetailExplorerInteractorTests.swift; sourceTree = "<group>"; };
+		D4B92EB729D29746000D916D /* PictureDetailExplorerDataServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PictureDetailExplorerDataServiceMock.swift; sourceTree = "<group>"; };
+		D4B92EB929D29A76000D916D /* AWFileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AWFileManager.swift; sourceTree = "<group>"; };
+		D4B92EBB29D29CCF000D916D /* AWFileManagerSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AWFileManagerSpy.swift; sourceTree = "<group>"; };
+		D4B92EBD29D29E71000D916D /* PictureDetailExplorerPresenterSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PictureDetailExplorerPresenterSpy.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -156,6 +168,7 @@
 		D423D03D29CF515300708482 /* AstronomyWatchTests */ = {
 			isa = PBXGroup;
 			children = (
+				D4B92EB529D29394000D916D /* PictureDetailExplorerInteractorTests.swift */,
 				D41D91D529D15DD100A58386 /* PictureOfDayModelTests.swift */,
 				D41D91CF29D14E0D00A58386 /* PictureDetailExplorerPresenterTests.swift */,
 				D41D91CB29D0BC6F00A58386 /* PictureDetailExplorerViewControllerTests.swift */,
@@ -163,6 +176,9 @@
 				D41D91CD29D139E900A58386 /* PictureDetailExplorerInteractorMock.swift */,
 				D41D91D129D152EF00A58386 /* PictureDetailExplorerViewSpy.swift */,
 				D41D91D329D15D9300A58386 /* Model.json */,
+				D4B92EB729D29746000D916D /* PictureDetailExplorerDataServiceMock.swift */,
+				D4B92EBB29D29CCF000D916D /* AWFileManagerSpy.swift */,
+				D4B92EBD29D29E71000D916D /* PictureDetailExplorerPresenterSpy.swift */,
 			);
 			path = AstronomyWatchTests;
 			sourceTree = "<group>";
@@ -214,6 +230,7 @@
 			children = (
 				D423D05F29CF551300708482 /* AppCoordinator.swift */,
 				D423D06229CF559A00708482 /* BaseCoordinator.swift */,
+				D4B92EB929D29A76000D916D /* AWFileManager.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -238,6 +255,7 @@
 			isa = PBXGroup;
 			children = (
 				D423D06C29CF64A600708482 /* PictureDetailExplorerInteractor.swift */,
+				D4B92EB329D28F2C000D916D /* PictureDetailExplorerDataService.swift */,
 			);
 			path = Interactor;
 			sourceTree = "<group>";
@@ -392,6 +410,7 @@
 			files = (
 				D423D06029CF551300708482 /* AppCoordinator.swift in Sources */,
 				D423D07A29CF914300708482 /* NetworkMonitor.swift in Sources */,
+				D4B92EB429D28F2C000D916D /* PictureDetailExplorerDataService.swift in Sources */,
 				D423D06F29CF65AC00708482 /* PictureDetailExplorerPresenter.swift in Sources */,
 				D423D05C29CF51F300708482 /* ConfigKeys.swift in Sources */,
 				D423D02C29CF515100708482 /* ViewController.swift in Sources */,
@@ -404,6 +423,7 @@
 				D423D07429CF7E8000708482 /* URL+Extension.swift in Sources */,
 				D423D06729CF5EC200708482 /* PictureDetailExplorerCoordinator.swift in Sources */,
 				D423D02A29CF515100708482 /* SceneDelegate.swift in Sources */,
+				D4B92EBA29D29A76000D916D /* AWFileManager.swift in Sources */,
 				D423D05A29CF51A800708482 /* Bundle+Extension.swift in Sources */,
 				D423D06D29CF64A600708482 /* PictureDetailExplorerInteractor.swift in Sources */,
 			);
@@ -416,7 +436,11 @@
 				D41D91CE29D139E900A58386 /* PictureDetailExplorerInteractorMock.swift in Sources */,
 				D41D91D229D152EF00A58386 /* PictureDetailExplorerViewSpy.swift in Sources */,
 				D41D91D629D15DD100A58386 /* PictureOfDayModelTests.swift in Sources */,
+				D4B92EBC29D29CCF000D916D /* AWFileManagerSpy.swift in Sources */,
+				D4B92EBE29D29E71000D916D /* PictureDetailExplorerPresenterSpy.swift in Sources */,
+				D4B92EB629D29394000D916D /* PictureDetailExplorerInteractorTests.swift in Sources */,
 				D423D03F29CF515300708482 /* AstronomyWatchTests.swift in Sources */,
+				D4B92EB829D29746000D916D /* PictureDetailExplorerDataServiceMock.swift in Sources */,
 				D41D91CC29D0BC6F00A58386 /* PictureDetailExplorerViewControllerTests.swift in Sources */,
 				D41D91D029D14E0D00A58386 /* PictureDetailExplorerPresenterTests.swift in Sources */,
 			);

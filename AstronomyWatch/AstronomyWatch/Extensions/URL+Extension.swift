@@ -16,4 +16,8 @@ extension URL {
         }
         return nil
     }
+    
+    static func getDocumentDirectory() -> URL? {
+        return FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first
+    }
 }

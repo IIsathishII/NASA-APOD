@@ -84,7 +84,7 @@ class PictureDetailExplorerViewController: UIViewController, PictureDetailExplor
             contentView.widthAnchor.constraint(equalTo: self.scrollView.widthAnchor)
         ])
         
-        if let imageURL = model.hdurl?.getLocalFileURL(), let image = interactorDelegate?.getImageFor(Path: imageURL.path) {
+        if let imageURL = model.url?.getLocalFileURL(), let image = interactorDelegate?.getImageFor(Path: imageURL.path) {
             let imageView = UIImageView(image: image)
             imageView.backgroundColor = UIColor.black
             imageView.contentMode = .scaleAspectFit
@@ -145,6 +145,7 @@ class PictureDetailExplorerViewController: UIViewController, PictureDetailExplor
     }
     
     func showLoader(_ value: Bool) {
+        self.loader.layer.zPosition = CGFloat.greatestFiniteMagnitude
         if value {
             self.loader.startAnimating()
         } else {

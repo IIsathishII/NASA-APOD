@@ -17,11 +17,15 @@ protocol PictureDetailExplorerInteractorProtocol: AnyObject {
 class PictureDetailExplorerInteractor: PictureDetailExplorerInteractorProtocol {
     
     var presenterDelegate: PictureDetailExplorerPresenterProtocol?
-    var urlSession = URLSession(configuration: .default)
+    var dataService: PictureDetailExplorerDataServiceProtocol
+    var fileManager: AWFileManagerProtocol
     
     var fetchDidFail = false
     
-    init() {
+    init(dataService: PictureDetailExplorerDataServiceProtocol, fileManager: AWFileManagerProtocol) {
+        self.dataService = dataService
+        self.fileManager = fileManager
+        
         NetworkMonitor.shared.setCallback { [weak self] status in
             guard let self = self else { return }
             if status == .satisfied, self.fetchDidFail {
@@ -51,24 +55,17 @@ class PictureDetailExplorerInteractor: PictureDetailExplorerInteractorProtocol {
 
 extension PictureDetailExplorerInteractor {
     
-    private func fetchPictureOfTheDay() {
-        guard let request = createPictureOfTheDayRequest() else { return }
+    func fetchPictureOfTheDay() {
         self.presenterDelegate?.didStartLoading()
-        let task = urlSession.dataTask(with: request) { data, response, error in
-            DispatchQueue.main.async {
-                if error != nil || data == nil || (response as? HTTPURLResponse)?.statusCode != 200 {
-                    self.fetchPictureModelDidFail()
-                } else if let data = data {
-                    if let model = try? JSONDecoder().decode(PictureOfDayModel.self, from: data) {
-                        self.didFetchPictureModel(model: model)
-                    }
-                }
-            }
+        self.dataService.fetchPOD { model in
+            self.didFetchPictureModel(model: model)
+        } onError: {
+            self.fetchPictureModelDidFail()
         }
-        task.resume()
+
     }
     
-    private func fetchPictureModelDidFail() {
+    func fetchPictureModelDidFail() {
         self.fetchDidFail = true
         if let model = UserDefaults.standard.pictureOfDayModel {
             self.presenterDelegate?.loadPictureOfTheDay(model: model)
@@ -76,56 +73,35 @@ extension PictureDetailExplorerInteractor {
         }
     }
     
-    private func didFetchPictureModel(model: PictureOfDayModel) {
+    func didFetchPictureModel(model: PictureOfDayModel) {
         if let url = model.url, self.isValidImageFormat(ext: url.pathExtension) {
-            self.downloadImageFrom(URL: url) { success in
-                DispatchQueue.main.async {
-                    if success {
+            self.dataService.downloadPOD(url: url) { tempURL in
+                if let destinationUrl = url.getLocalFileURL() {
+                    do {
+                        try self.fileManager.removeFilesFromDocumentDirectory()
+                        try self.fileManager.copyItem(at: tempURL, to: destinationUrl)
+                        
                         self.loadPictureOfDay(model: model)
+                    } catch (let err) {
+                        print("File copy failed! ", err)
                     }
                 }
+            } onError: {
+                
             }
         } else {
             self.loadPictureOfDay(model: model)
         }
     }
     
-    private func loadPictureOfDay(model: PictureOfDayModel) {
+    func loadPictureOfDay(model: PictureOfDayModel) {
         self.presenterDelegate?.didEndLoading()
         UserDefaults.standard.pictureOfDayModel = model
         self.presenterDelegate?.loadPictureOfTheDay(model: model)
     }
     
-    private func isValidImageFormat(ext: String) -> Bool {
+    func isValidImageFormat(ext: String) -> Bool {
         ext == "jpg" || ext == "png" || ext == "jpeg"
     }
-    
-    private func createPictureOfTheDayRequest() -> URLRequest? {
-        guard var components = URLComponents(string: "https://api.nasa.gov/planetary/apod") else { return nil }
-        components.queryItems = [
-            URLQueryItem(name: "api_key", value: Bundle.main.getValueFromInfoPlist(ForKey: .NASAAPIKey)),
-            URLQueryItem(name: "date", value: Date.getTodaysDateInAPIFriendlyFormat())
-        ]
-        guard let requestURL = components.url else { return nil}
-        return URLRequest(url: requestURL)
-    }
-    
-    private func downloadImageFrom(URL url: URL, completion: @escaping (Bool) -> ()) {
-        if let destinationUrl = url.getLocalFileURL() {
-            let request = URLRequest(url: url)
-            let task = urlSession.downloadTask(with: request) { tempUrl, response, error in
-                if let tempUrl = tempUrl {
-                    do {
-                        try FileManager.default.copyItem(at: tempUrl, to: destinationUrl)
-                        completion(true)
-                        return
-                    } catch (let err) {
-                        print("File copy failed! ", err)
-                    }
-                }
-                completion(false)
-            }
-            task.resume()
-        }
-    }
 }
+//
