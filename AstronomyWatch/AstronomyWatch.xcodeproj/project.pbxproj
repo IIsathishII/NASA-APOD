@@ -35,6 +35,7 @@
 		D423D07629CF83C100708482 /* UserDefaults+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D423D07529CF83C100708482 /* UserDefaults+Extension.swift */; };
 		D423D07829CF873600708482 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D423D07729CF873500708482 /* Date+Extension.swift */; };
 		D423D07A29CF914300708482 /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D423D07929CF914300708482 /* NetworkMonitor.swift */; };
+		D493141E29D3DB5C00031A04 /* FakeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D493141D29D3DB5C00031A04 /* FakeModel.swift */; };
 		D4B92EB429D28F2C000D916D /* PictureDetailExplorerDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B92EB329D28F2C000D916D /* PictureDetailExplorerDataService.swift */; };
 		D4B92EB629D29394000D916D /* PictureDetailExplorerInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B92EB529D29394000D916D /* PictureDetailExplorerInteractorTests.swift */; };
 		D4B92EB829D29746000D916D /* PictureDetailExplorerDataServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B92EB729D29746000D916D /* PictureDetailExplorerDataServiceMock.swift */; };
@@ -95,6 +96,7 @@
 		D423D07529CF83C100708482 /* UserDefaults+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Extension.swift"; sourceTree = "<group>"; };
 		D423D07729CF873500708482 /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 		D423D07929CF914300708482 /* NetworkMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
+		D493141D29D3DB5C00031A04 /* FakeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeModel.swift; sourceTree = "<group>"; };
 		D4B92EB329D28F2C000D916D /* PictureDetailExplorerDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PictureDetailExplorerDataService.swift; sourceTree = "<group>"; };
 		D4B92EB529D29394000D916D /* PictureDetailExplorerInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PictureDetailExplorerInteractorTests.swift; sourceTree = "<group>"; };
 		D4B92EB729D29746000D916D /* PictureDetailExplorerDataServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PictureDetailExplorerDataServiceMock.swift; sourceTree = "<group>"; };
@@ -182,6 +184,7 @@
 				D4B92EB729D29746000D916D /* PictureDetailExplorerDataServiceMock.swift */,
 				D4B92EBB29D29CCF000D916D /* AWFileManagerSpy.swift */,
 				D4B92EBD29D29E71000D916D /* PictureDetailExplorerPresenterSpy.swift */,
+				D493141D29D3DB5C00031A04 /* FakeModel.swift */,
 			);
 			path = AstronomyWatchTests;
 			sourceTree = "<group>";
@@ -440,6 +443,7 @@
 				D41D91CE29D139E900A58386 /* PictureDetailExplorerInteractorMock.swift in Sources */,
 				D41D91D229D152EF00A58386 /* PictureDetailExplorerViewSpy.swift in Sources */,
 				D41D91D629D15DD100A58386 /* PictureOfDayModelTests.swift in Sources */,
+				D493141E29D3DB5C00031A04 /* FakeModel.swift in Sources */,
 				D4B92EBC29D29CCF000D916D /* AWFileManagerSpy.swift in Sources */,
 				D4B92EBE29D29E71000D916D /* PictureDetailExplorerPresenterSpy.swift in Sources */,
 				D4B92EB629D29394000D916D /* PictureDetailExplorerInteractorTests.swift in Sources */,

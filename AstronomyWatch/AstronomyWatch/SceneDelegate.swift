@@ -74,7 +74,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard ProcessInfo.processInfo.arguments.contains("Testing") else { return }
         let shouldCache = ProcessInfo.processInfo.arguments.contains("Cached")
         if shouldCache {
-            let model = PictureOfDayModel(date: "2023-03-27",
+            let model = PictureOfDayModel(date: Date.getTodaysDateInAPIFriendlyFormat(),
                                           title: "Outbound Comet ZTF",
                                           explanation: "About Comet ZTF",
                                           url: URL(string: "https://apod.nasa.gov/apod/image/2303/C2022E3_230321_1024.jpg"),

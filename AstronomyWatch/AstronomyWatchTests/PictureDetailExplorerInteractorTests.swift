@@ -24,13 +24,8 @@ final class PictureDetailExplorerInteractorTests: XCTestCase {
         self.sut = PictureDetailExplorerInteractor(dataService: PictureDetailExplorerDataServiceMock(), fileManager: AWFileManagerSpy())
         let presenterSpy = PictureDetailExplorerPresenterSpy()
         self.sut.presenterDelegate = presenterSpy
-        
-        let model = PictureOfDayModel(date: "2023-03-27",
-                                      title: "Outbound Comet ZTF",
-                                      explanation: "About Comet ZTF",
-                                      url: URL(string: "https://apod.nasa.gov/apod/image/2303/C2022E3_230321_1024.jpg"),
-                                      hdUrl: URL(string: "https://apod.nasa.gov/apod/image/2303/C2022E3_230321_1024.jpg"))
-        UserDefaults.standard.pictureOfDayModel = model
+                
+        UserDefaults.standard.pictureOfDayModel = testModel
 
         self.sut.startLoading()
         
@@ -45,7 +40,7 @@ final class PictureDetailExplorerInteractorTests: XCTestCase {
         
         self.sut.startLoading()
         
-        XCTAssert(presenterSpy.didLoadPicture, "Loading indicator is not shown before fetch")
+        XCTAssert(presenterSpy.loadingStarted, "Loading indicator is not shown before fetch")
         XCTAssert(dataService.didPerformFetch, "Remte fetch was not performed")
     }
 
@@ -66,13 +61,8 @@ final class PictureDetailExplorerInteractorTests: XCTestCase {
         self.sut = PictureDetailExplorerInteractor(dataService: dataService, fileManager: AWFileManagerSpy())
         let presenterSpy = PictureDetailExplorerPresenterSpy()
         self.sut.presenterDelegate = presenterSpy
-        
-        let model = PictureOfDayModel(date: "2023-03-27",
-                                      title: "Outbound Comet ZTF",
-                                      explanation: "About Comet ZTF",
-                                      url: URL(string: "https://apod.nasa.gov/apod/image/2303/C2022E3_230321_1024.jpg"),
-                                      hdUrl: URL(string: "https://apod.nasa.gov/apod/image/2303/C2022E3_230321_1024.jpg"))
-        UserDefaults.standard.pictureOfDayModel = model
+                
+        UserDefaults.standard.pictureOfDayModel = testModel
         
         self.sut.fetchPictureModelDidFail()
         
@@ -100,15 +90,65 @@ final class PictureDetailExplorerInteractorTests: XCTestCase {
         let presenterSpy = PictureDetailExplorerPresenterSpy()
         self.sut.presenterDelegate = presenterSpy
         
-        let model = PictureOfDayModel(date: "2023-03-27",
-                                      title: "Outbound Comet ZTF",
-                                      explanation: "About Comet ZTF",
-                                      url: URL(string: "https://apod.nasa.gov/apod/image/2303/C2022E3_230321_1024.jpg"),
-                                      hdUrl: URL(string: "https://apod.nasa.gov/apod/image/2303/C2022E3_230321_1024.jpg"))
-        
-        self.sut.didFetchPictureModel(model: model)
+        self.sut.didFetchPictureModel(model: testModel)
         
         XCTAssert(dataService.didPerformDownload, "File was not downloaded from given URL")
+    }
+    
+    func testPerformFileDownloadSuccess() throws {
+        let dataService = PictureDetailExplorerDataServiceMock(isDownloadSuccess: true)
+        let fileManager = AWFileManagerSpy()
+        self.sut = PictureDetailExplorerInteractor(dataService: dataService, fileManager: fileManager)
+        let presenterSpy = PictureDetailExplorerPresenterSpy()
+        self.sut.presenterDelegate = presenterSpy
+        
+        let url = try XCTUnwrap(testModel.url, "URL is not available")
+                
+        let expectation = expectation(description: "Wait for file to download")
+        var didSucceed = false
+        self.sut.performFileDownload(url: url) { url in
+            didSucceed = true
+            expectation.fulfill()
+        } onError: {
+            expectation.fulfill()
+        }
+
+        wait(for: [expectation], timeout: 3)
+        XCTAssert(didSucceed, "File download call failed")
+    }
+    
+    func testPerformFileDownloadFail() throws {
+        let dataService = PictureDetailExplorerDataServiceMock(isDownloadSuccess: false)
+        let fileManager = AWFileManagerSpy()
+        self.sut = PictureDetailExplorerInteractor(dataService: dataService, fileManager: fileManager)
+        let presenterSpy = PictureDetailExplorerPresenterSpy()
+        self.sut.presenterDelegate = presenterSpy
+        
+        let url = try XCTUnwrap(testModel.url, "URL is not available")
+                
+        let expectation = expectation(description: "Wait for file to download")
+        var didFail = false
+        self.sut.performFileDownload(url: url) { url in
+            expectation.fulfill()
+        } onError: {
+            didFail = true
+            expectation.fulfill()
+        }
+
+        wait(for: [expectation], timeout: 3)
+        XCTAssert(didFail, "File download call succeeded")
+    }
+    
+    func testHandleDownloadedFile() throws {
+        let dataService = PictureDetailExplorerDataServiceMock()
+        let fileManager = AWFileManagerSpy()
+        self.sut = PictureDetailExplorerInteractor(dataService: dataService, fileManager: fileManager)
+        let presenterSpy = PictureDetailExplorerPresenterSpy()
+        self.sut.presenterDelegate = presenterSpy
+        
+        let url = try XCTUnwrap(testModel.url, "URL is not available")
+        self.sut.handleDownloadedFile(remoteURL: url, tempURL: URL(fileURLWithPath: "file://dummy"))
+        
         XCTAssert(fileManager.didRemoveAllFilesFromDirectory, "Old files were not removed from the document directory")
         XCTAssert(fileManager.didCopyItem, "The downloaded file was not copied to the destination folder")
     }
@@ -120,12 +160,7 @@ final class PictureDetailExplorerInteractorTests: XCTestCase {
         let presenterSpy = PictureDetailExplorerPresenterSpy()
         self.sut.presenterDelegate = presenterSpy
         
-        let model = PictureOfDayModel(date: "2023-03-27",
-                                      title: "Outbound Comet ZTF",
-                                      explanation: "About Comet ZTF",
-                                      url: URL(string: "https://apod.nasa.gov/apod/image/2303/C2022E3_230321_1024.jpg"),
-                                      hdUrl: URL(string: "https://apod.nasa.gov/apod/image/2303/C2022E3_230321_1024.jpg"))
-        self.sut.loadPictureOfDay(model: model)
+        self.sut.loadPictureOfDay(model: testModel)
         
         XCTAssertNotNil(UserDefaults.standard.pictureOfDayModel, "Model should have been cached")
         XCTAssert(presenterSpy.loadingEnded, "Loading indicator not hidden")

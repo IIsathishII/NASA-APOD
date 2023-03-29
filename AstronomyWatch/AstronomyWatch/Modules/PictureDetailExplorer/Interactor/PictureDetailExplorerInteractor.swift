@@ -80,16 +80,9 @@ extension PictureDetailExplorerInteractor {
     //Once APOD is fetched, downloads the file from the url and stores it locally
     func didFetchPictureModel(model: PictureOfDayModel) {
         if let url = model.url, self.isValidImageFormat(ext: url.pathExtension) {
-            self.dataService.downloadPOD(url: url) { tempURL in
-                if let destinationUrl = url.getLocalFileURL() {
-                    do {
-                        try self.fileManager.removeFilesFromDocumentDirectory()
-                        try self.fileManager.copyItem(at: tempURL, to: destinationUrl)
-                        
-                        self.loadPictureOfDay(model: model)
-                    } catch (let err) {
-                        print("File copy failed! ", err)
-                    }
+            self.performFileDownload(url: url) { tempURL in
+                if self.handleDownloadedFile(remoteURL: url, tempURL: tempURL) {
+                    self.loadPictureOfDay(model: model)
                 }
             } onError: {
                 
@@ -97,6 +90,28 @@ extension PictureDetailExplorerInteractor {
         } else {
             self.loadPictureOfDay(model: model)
         }
+    }
+    
+    func performFileDownload(url: URL, onSuccess: @escaping (URL) -> (), onError: @escaping () -> ()) {
+        self.dataService.downloadPOD(url: url) { url in
+            onSuccess(url)
+        } onError: {
+            onError()
+        }
+    }
+    
+    func handleDownloadedFile(remoteURL: URL, tempURL: URL) -> Bool {
+        if let destinationUrl = remoteURL.getLocalFileURL() {
+            do {
+                try self.fileManager.removeFilesFromDocumentDirectory()
+                try self.fileManager.copyItem(at: tempURL, to: destinationUrl)
+                                
+                return true
+            } catch (let err) {
+                print("File copy failed! ", err)
+            }
+        }
+        return false
     }
     
     func loadPictureOfDay(model: PictureOfDayModel) {

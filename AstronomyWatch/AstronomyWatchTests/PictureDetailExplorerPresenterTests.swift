@@ -24,13 +24,8 @@ class PictureDetailExplorerPresenterTests: XCTestCase {
     }
 
     func testLoadPictureOfDay() throws {
-        let model = PictureOfDayModel(date: "2023-03-27",
-                                      title: "Outbound Comet ZTF",
-                                      explanation: "About Comet ZTF",
-                                      url: URL(string: "https://apod.nasa.gov/apod/image/2303/C2022E3_230321_1024.jpg"),
-                                      hdUrl: URL(string: "https://apod.nasa.gov/apod/image/2303/C2022E3_230321_1024.jpg"))
         
-        self.sut.loadPictureOfTheDay(model: model)
+        self.sut.loadPictureOfTheDay(model: testModel)
         
         XCTAssertNotNil(self.sut.model, "Model should be set and non-nil")
         XCTAssert(self.viewSpy.didConstructPODView, "View is not constructed for the model")

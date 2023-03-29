@@ -50,13 +50,7 @@ class PictureDetailExplorerViewControllerTests: XCTestCase {
         let interactorMock = PictureDetailExplorerInteractorMock()
         self.sut.interactorDelegate = interactorMock
         
-        let model = PictureOfDayModel(date: "2023-03-27",
-                                      title: "Outbound Comet ZTF",
-                                      explanation: "About Comet ZTF",
-                                      url: URL(string: "https://apod.nasa.gov/apod/image/2303/C2022E3_230321_1024.jpg"),
-                                      hdUrl: URL(string: "https://apod.nasa.gov/apod/image/2303/C2022E3_230321_1024.jpg"))
-        
-        self.sut.constructViewWith(Model: model)
+        self.sut.constructViewWith(Model: testModel)
         
         let imageView = try XCTUnwrap(self.sut.imageView, "Image view is not created")
         XCTAssert(imageView.superview != nil, "Image is not added to the view hierarchy")
@@ -72,7 +66,7 @@ class PictureDetailExplorerViewControllerTests: XCTestCase {
         let interactorMock = PictureDetailExplorerInteractorMock()
         self.sut.interactorDelegate = interactorMock
         
-        let model = PictureOfDayModel(date: "2023-03-27",
+        let model = PictureOfDayModel(date: Date.getTodaysDateInAPIFriendlyFormat(),
                                       title: "Outbound Comet ZTF",
                                       explanation: "About Comet ZTF",
                                       url: nil,
@@ -93,7 +87,7 @@ class PictureDetailExplorerViewControllerTests: XCTestCase {
         let interactorMock = PictureDetailExplorerInteractorMock()
         self.sut.interactorDelegate = interactorMock
         
-        let model = PictureOfDayModel(date: "2023-03-27",
+        let model = PictureOfDayModel(date: Date.getTodaysDateInAPIFriendlyFormat(),
                                       title: nil,
                                       explanation: "About Comet ZTF",
                                       url: URL(string: "https://apod.nasa.gov/apod/image/2303/C2022E3_230321_1024.jpg"),
@@ -114,7 +108,7 @@ class PictureDetailExplorerViewControllerTests: XCTestCase {
         let interactorMock = PictureDetailExplorerInteractorMock()
         self.sut.interactorDelegate = interactorMock
         
-        let model = PictureOfDayModel(date: "2023-03-27",
+        let model = PictureOfDayModel(date: Date.getTodaysDateInAPIFriendlyFormat(),
                                       title: "Outbound Comet ZTF",
                                       explanation: nil,
                                       url: URL(string: "https://apod.nasa.gov/apod/image/2303/C2022E3_230321_1024.jpg"),
